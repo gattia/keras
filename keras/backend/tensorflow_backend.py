@@ -3718,7 +3718,7 @@ def dropout(x, level, noise_shape=None, seed=None):
         seed = np.random.randint(10e6)
     # the dummy 1. works around a TF bug
     # (float32_ref vs. float32 incompatibility)
-    return tf.nn.dropout(x * 1., retain_prob, noise_shape, seed=seed)
+    return tf.nn.dropout(x * 1., noise_shape=noise_shape, seed=seed, rate=level)
 
 
 def l2_normalize(x, axis=None):
